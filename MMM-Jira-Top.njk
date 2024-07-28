@@ -1,0 +1,52 @@
+{% if boards %}
+    {# --------------  Title -------------- #}
+    <header class="module-header jiratop-header">Top Jira Stories</header>
+    <div class="boards" id="boards0">
+    {% for proj in boards %}
+        <div class="cell board" data-events-count={{proj|length}}>
+            <div class="cellHeader">
+                <div class="cellHeaderMain">
+                    <div class="cellKey">
+                        <span>{{proj.projKey}}</span>
+                    </div>
+                    <div class="cellDesc">
+                        <span>{{proj.projName}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="cellBody">
+                <div class="cards">
+                {% for card in proj.cards %}    
+                    {% if card.outward.length > 0%}            
+                    <div class="acard independent" id="{{card.key}}">
+                        <div>
+                            <div class="cardInfo"><span class="smallCardName">{{card.key}}</span>  {{card.summary}}</div>
+                        </div>
+                    </div>
+                    {% elif card.inward.length > 0 %}
+                    <div class="acard dependent" id="{{card.key}}">
+                        <div>
+                            <div class="cardInfo"><span class="smallCardName">{{card.key}}</span>  {{card.summary}}</div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="acard" id="{{card.key}}">
+                        <div>
+                            <div class="smallCardName"><span>{{card.key}}</span></div>
+                            <div class="title"><span>{{card.summary}}</span></div>
+                        </div>
+                    </div>
+                    {%endif%}
+                {%endfor%}
+                </div>
+            </div>
+            <div class="cellFooter"></div>
+        </div>
+    {% endfor %}
+    </div>
+        <div class="overlay">
+        </div>
+    </div>
+{% else %}
+    <div class="dimmed light small">{{ "Loading ..." | translate }}</div>
+{% endif %}

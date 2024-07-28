@@ -48,3 +48,8 @@ Thumbs.db
 *.mov
 *.wmv
 
+# Lintness
+.eslintrc.json
+.stylelintrc
+Gruntfile.js
+eslint.config.mjs

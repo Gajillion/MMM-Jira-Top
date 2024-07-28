@@ -1,0 +1,191 @@
+.MMM-Jira-Top {
+    font-size: 16px;
+    min-width: 300px;
+    max-width: 400px;
+    text-align: left;
+    color: lightgray;
+  
+    --cardColor: white;
+    --dependentCardColor: gold;
+    --headerColor: dodgerblue;
+    --backgroundColor: black;
+    --independentColor: skyblue;
+
+}
+  
+/*  Header */
+.MMM-Jira-Top .module-header.jiratop-header {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.MMM-Jira-Top .boards {
+    position: relative;
+    max-height: 600px;
+    overflow-y: hidden;
+    mask-image: linear-gradient(to bottom, transparent, black 10%);
+    -webkit-mask-image: -webkit-linear-gradient(90deg, transparent, black 10%);
+  }
+
+.MMM-Jira-Top .cell.board .cellHeaderMain * {
+    color: var(--headerColor);
+}
+
+.MMM-Jira-Top .boards .cell {
+    padding-top: 2px;
+    border-bottom: 1px solid gray;
+    margin-top: 2px;
+    cursor: pointer;
+
+  }
+
+.MMM-Jira-Top .cellBody {
+    line-height: 105%;
+}
+  
+.MMM-Jira-Top .cellHeader {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.MMM-Jira-Top .cellHeaderMain {
+    display: flex;
+    gap: 3px;
+  }
+
+  .MMM-Jira-Top .acard .smallCardName {
+    font-size: 75%;
+    vertical-align: text-bottom;
+    min-width: fit-content;
+    display: inline;
+  }
+
+
+  .MMM-Jira-Top .acard .title {
+    color: var(--cardColor);
+    display: inline;
+  }
+
+  .MMM-Jira-Top .cellBody .cards {
+
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 5px;
+    background-color: var(--backgroundColor);
+    border-radius: 3px;
+    padding: 2px 5px;
+    display:grid;
+
+  }
+  
+  .MMM-Jira-Top .cellBody .cards .acard {
+    border-radius: 3px;
+    padding: 2px 5px;
+    display:grid;
+    max-width: fit-content;
+    text-overflow: ellipsis;
+    gap:15px;
+
+  }
+
+  .MMM-Jira-Top .cellBody .cards .independent {
+    line-height: 105%;
+    background-color: var(--independentColor);
+  }
+  
+  .MMM-Jira-Top .cellBody .cards .acard:not(.dependent)  {
+    line-height: 105%;
+  }
+
+  .MMM-Jira-Top .cellBody .cards .dependent{
+    background-color: var(--dependentCardColor);
+    border-radius: 3px;
+    padding: 2px 5px;
+    display:grid;
+    font-size: 90%;
+    line-height: 90%;
+    max-width: fit-content;
+    text-overflow: ellipsis;
+    margin-left: 50px;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    color: rgb(57, 56, 58);
+    gap: 15px;
+
+  }
+
+  .MMM-Jira-Top .acard:not(.dependent) .cardInfo {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    font-size: 100%;
+    color: rgb(55, 4, 173);
+    text-align: right;
+  }
+
+/* Overlay styles */
+.MMM-Jira-Top .overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 90%;
+    height: 90%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    display: none;
+    justify-content: left;
+    align-items: left;
+    z-index: 1;
+}
+
+/* Content inside the overlay */
+.MMM-Jira-Top .overlay-content {
+    /* background-color: #0a0a0a;*/
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(30, 144, 255, 0.9);
+    max-width: 90%;
+    text-align: left;
+    cursor: pointer;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+}
+
+.MMM-Jira-Top .overlay-content .leadin{
+    color: var(--headerColor);
+}
+
+.MMM-Jira-Top .overlay-content .cardName {
+    color: lightgray;
+    font-size: 75%;
+}
+
+.MMM-Jira-Top .overlay-content .pLow {
+    color: blueviolet;
+    font-weight: bold;
+}
+
+.MMM-Jira-Top .overlay-content .pMedium {
+    color: yellowgreen;
+}
+
+.MMM-Jira-Top .overlay-content .pHigh {
+    color: red;
+    font-weight: bold;
+}
+
+
+/* Close button */
+.MMM-Jira-Top .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    /* background-color: rgba(243, 215, 215, 0.788);*/
+    color: rgb(238, 16, 201);
+    font-weight: bold;
+}
